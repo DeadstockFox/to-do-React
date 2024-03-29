@@ -5,36 +5,59 @@ import axios from 'axios';
 
 
 function App () {
-  const [todoList, setTodoList] = useState([]);
+  //Getters & Setters
+  const [todoList, setTodoList] = useState([]); //GET
+  const [task, setTask] = useState(''); //POST
 
+  //Function with GET request inside
   function getTodoList() {
     axios.get('/api/todo').then((r) => {
       console.log('GET request made on client');
       setTodoList(r.data);
     }).catch((e) => {
-      console.log('Error in client-side GET request');
-      //add alert
+      console.log('Error in client-side GET request', e);
+      alert('Something went wrong : C');
     })
   };
 
-  //useEffect is called on page load
+  //useEffect is called on page load, calls function for GET request
   useEffect(() => {
     console.log('On page load');
     getTodoList();
-  }, []); //useEffect function takes in 2 arguments: arrow function & empty array!!!
+  }, []); //SELF REMINDER: useEffect function takes in 2 arguments: arrow function & empty array!!!
 
+  //Function with POST request inside on form submit
+  function postTask(event) {
+    event.preventDefault();
+    console.log(task);
+    event.target.reset();
+
+   // axios.post('api/todo', )
+  };
+/*
+IGNORE: Testing old onClick!
+  function changeTask(event) {
+    event.preventDefault();
+    setTask(document.getElementById("taskDesc").value);
+    console.log(task);
+  };
+*/
 
 
   return (
     <div>
+
       <header>
       <h1>TO DO APP</h1>
       </header>
 
       <main>
-      <form>
+
+      <form onSubmit={postTask} >  {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
       {/*input list items*/}
 
+      <input id={"taskDesc"} placeholder={"Input new task"} onChange={(e) => {setTask(e.target.value)}} />
+      <button>Submit</button>
       </form>
         
       
