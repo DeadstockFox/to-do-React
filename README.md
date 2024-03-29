@@ -25,9 +25,9 @@ NPM INSTALL (node_modules), Make sure dependicies are in package.json (axios, ex
 npm run client - react | npm run server - express server | postgress server: running
 
 [x] Make sql database file with test data to prove databse works
-[] Database tables should have "id", "description", "complete indicator" (more detail?)
-[] Create GET route on server to pull test data from database
-[] Create GET route on component to display on DOM (figure out how you want sections displayed)
+[x] Database tables should have "id", "description", "complete indicator" (more detail?)
+[x] Create GET route on server to pull test data from database (test in Postman)
+[x] Create GET route on component to display on DOM (figure out how you want sections displayed)
 [] Create html sections on DOM with inputs for task descriptions
 [] Create POST route for inputs to server
 [] Add server-side POST request to upload to database, make sure posted items appear on DOM
