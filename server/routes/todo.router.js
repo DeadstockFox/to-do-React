@@ -31,6 +31,18 @@ router.post('/', (req,res) => {
     })
 });
 // PUT
+router.put('/:id', (req, res) => {
+    console.log(req.params);
+
+    let queryText = `UPDATE "todo" SET "complete" = NOT "complete" WHERE "id" = $1;`;
+
+    pool.query(queryText, [req.params.id]).then((r) => {
+        res.sendStatus(201);
+    }).catch((e) => {
+        console.log('Error in server-side PUT request');
+        res.sendStatus(500);
+    });
+});
 
 // DELETE
 
