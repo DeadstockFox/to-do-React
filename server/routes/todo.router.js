@@ -9,7 +9,7 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => { // api/todo
     console.log('GET request made');
 
-    const queryText = `SELECT * FROM "todo"`;
+    const queryText = `SELECT * FROM "todo" ORDER BY "id"`;
     pool.query(queryText).then((r) => {
         res.send(r.rows);  //sending from "todo"
     }).catch((e) => {

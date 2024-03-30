@@ -42,6 +42,15 @@ function App () {
       alert('Something went wrong :c');
     })
   };
+
+  const toggle = (id) => {
+    axios.put(`/api/todo/${id}`).then((r) =>{
+      getTodoList();
+    }).catch((e) => {
+      console.log('Error in client PUT request');
+      alert('Something went wrong :c');
+    })
+  };
 /*
 IGNORE: Testing old onClick!
   function changeTask(event) {
@@ -75,7 +84,7 @@ IGNORE: Testing old onClick!
         {
           todoList.map((list) => {
             return <div key={list.id}>
-              {list.description + " " + list.complete}
+              {list.description + " " + list.complete} <button onClick={() => {toggle(list.id)}}>Complete</button>
             </div>
           })
         }
