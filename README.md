@@ -28,10 +28,15 @@ npm run client - react | npm run server - express server | postgress server: run
 [x] Database tables should have "id", "description", "complete indicator" (more detail?)
 [x] Create GET route on server to pull test data from database (test in Postman)
 [x] Create GET route on component to display on DOM (figure out how you want sections displayed)
-[] Create html sections on DOM with inputs for task descriptions
-[] Create POST route for inputs to server
-[] Add server-side POST request to upload to database, make sure posted items appear on DOM
-[] PUT request to update item to complete?
+[x] Create html sections on DOM with inputs for task descriptions
+[x] Create POST route for inputs to server
+[x] Add server-side POST request to upload to database, make sure posted items appear on DOM
+[] Server-side PUT request to update task to complete (false => true)
+[] Add button on client-side to initiate PUT request
+[] Change css styling of completed task
+
+
+
 [] DELETE request to pull item off database
 [] CSS Styling to make page fancy
 

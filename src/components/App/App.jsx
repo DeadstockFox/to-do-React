@@ -11,28 +11,36 @@ function App () {
 
   //Function with GET request inside
   function getTodoList() {
+
     axios.get('/api/todo').then((r) => {
       console.log('GET request made on client');
-      setTodoList(r.data);
+      setTodoList(r.data); //setting list to map over later
     }).catch((e) => {
       console.log('Error in client-side GET request', e);
       alert('Something went wrong : C');
     })
   };
 
-  //useEffect is called on page load, calls function for GET request
+  //useEffect is called on page load, GET request
   useEffect(() => {
     console.log('On page load');
     getTodoList();
   }, []); //SELF REMINDER: useEffect function takes in 2 arguments: arrow function & empty array!!!
 
-  //Function with POST request inside on form submit
+  //Function with POST request on form submit
   function postTask(event) {
-    event.preventDefault();
+    event.preventDefault(); //prevents reload
     console.log(task);
-    event.target.reset();
+    event.target.reset(); //resets input field
+    
+    let taskData = {description: task}; //saving input data as variable
 
-   // axios.post('api/todo', )
+    axios.post('/api/todo', taskData).then((r) => {
+      getTodoList(); //Reloading list
+    }).catch((e) => {
+      console.log('error in client-side POST request', e);
+      alert('Something went wrong :c');
+    })
   };
 /*
 IGNORE: Testing old onClick!
@@ -41,6 +49,8 @@ IGNORE: Testing old onClick!
     setTask(document.getElementById("taskDesc").value);
     console.log(task);
   };
+
+  It works, but there is a delay with answers, don't like that!
 */
 
 

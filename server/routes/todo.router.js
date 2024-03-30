@@ -5,22 +5,31 @@ const pool = require('../modules/pool.js');
 //-----Current Work-----\\
 
 // GET
+//Responds to request from Client with data pulled from Database
 router.get('/', (req, res) => { // api/todo
     console.log('GET request made');
+
     const queryText = `SELECT * FROM "todo"`;
     pool.query(queryText).then((r) => {
-        res.send(r.rows);  //responding to GET request from client with data sent from database
+        res.send(r.rows);  //sending from "todo"
     }).catch((e) => {
         console.log('Error in server-side GET', e);
-        //add alert
+        r.sendStatus(500); //Unexpected error
     });
 });
 
 
-
-
 // POST
-
+router.post('/', (req,res) => {
+    console.log(req.body);
+    const queryText = `INSERT INTO "todo" (description) VALUES($1);`;
+    pool.query(queryText, [req.body.description]).then((r) => {
+        res.sendStatus(201) //Created
+    }).catch((e) => {
+        console.log('Error in server-side POST request', e);
+        res.sendStatus(500); //Unexpected error
+    })
+});
 // PUT
 
 // DELETE
