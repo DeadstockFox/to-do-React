@@ -21,3 +21,47 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+h1 {
+  text-align: center;
+}
+
+table {
+  border: solid black 1px;
+  display:block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 850px;
+  table-layout: fixed;
+  
+}
+
+.complete {
+  background-color: aquamarine;
+  width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#listDesc {
+  word-break: break-all;
+  width: 70%;
+  table-layout: fixed;
+  
+}
+
+#other {
+  width: 100px;
+  table-layout: fixed;
+  text-align: center;
+  border-left: solid black 1px;
+}
+
+#inputIt {
+  text-align: center;
+}
+
+#undo, #delete {
+  width: 73px;
+}
+

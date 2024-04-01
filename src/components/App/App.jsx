@@ -86,26 +86,41 @@ IGNORE: Testing old onClick!
 
       <main>
 
-      <form onSubmit={postTask} >  {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
+      <form id={"inputIt"} onSubmit={postTask}> {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
       {/*input list items*/}
 
-      <input id={"taskDesc"} placeholder={"Input new task"} onChange={(e) => {setTask(e.target.value)}} />
+      <input id={"taskDesc"} placeholder={"Input new task"} style={{width: "400px"}} onChange={(e) => {setTask(e.target.value)}} />
       <button>Submit</button>
       </form>
+      <br/>
         
       
-      {/*display list on DOM*/}
+      {/*display list on DOM, loops through each item in Database with .map*/}
         {
           todoList.map((list) => {
-            return <div key={list.id}>
-              {list.description + " " + (list.complete === true ? "Finished" : "Not Finished")}
-              {list.complete ? <button onClick={() => {toggle(list.id)}}>Undo</button> : <button onClick={() => {toggle(list.id)}}>Complete</button>}
-              {/*Whether tasl is "complete" in databse (true/false) determines what button is displayed, each with toggle */}
-              <button onClick={() => deleteButton(list.id)}>Delete Task</button>
+            return <div key={list.id} className={list.complete ? "complete" : "notComplete"}> {/*Changes CSS background color*/}
+            <table >
+              <tbody>
+                <tr className={"rows"}>
+                 <td id={"listDesc"}>{list.description}</td> {/*Task description*/}
+
+                 <td id={"other"}>{(list.complete === true ? "Finished" : "Not Finished")}</td> {/*Is task complete?*/}
+
+                 <td id={"other"}>{list.complete ? <button id={"undo"} onClick={() => {toggle(list.id)}}>Undo</button> :
+               <button onClick={() => {toggle(list.id)}}>Complete</button>}</td>
+               {/* ^ "Undo" or "Complete" button, depending on list.complete truth, calls toggle function */}
+                
+                <td id={"other"}><button id={"delete"} onClick={() => deleteButton(list.id)}>Delete Task</button></td> {/*Delete button*/}
+                </tr>
+              </tbody>
+             </table>
             </div>
           })
         }
       </main>
+      <footer>
+
+      </footer>
 
 
 
