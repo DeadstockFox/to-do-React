@@ -8,6 +8,7 @@ function App () {
   //Getters & Setters
   const [todoList, setTodoList] = useState([]); //GET
   const [task, setTask] = useState(''); //POST
+  const [buttonState, setButtonState] = useState("Complete")
 
   //Function with GET request inside
   function getTodoList() {
@@ -43,11 +44,24 @@ function App () {
     })
   };
 
-  const toggle = (id) => {
+  //function to update whether country has been visited in database,
+   const toggle = (id) => {
+
+    //PUT request
     axios.put(`/api/todo/${id}`).then((r) =>{
-      getTodoList();
+      getTodoList(); //updates current task list on DOM
     }).catch((e) => {
       console.log('Error in client PUT request');
+      alert('Something went wrong :c');
+    }) 
+  };
+
+  //Function to delete task on DOM, will also delete button
+  function deleteButton(id) {
+    axios.delete(`/api/todo/${id}`).then((r) => {
+      getTodoList(); //Reloading list
+    }).catch((e) => {
+      console.log('Error in client-side DELETE request', e);
       alert('Something went wrong :c');
     })
   };
@@ -84,7 +98,10 @@ IGNORE: Testing old onClick!
         {
           todoList.map((list) => {
             return <div key={list.id}>
-              {list.description + " " + list.complete} <button onClick={() => {toggle(list.id)}}>Complete</button>
+              {list.description + " " + (list.complete === true ? "Finished" : "Not Finished")}
+              {list.complete ? <button onClick={() => {toggle(list.id)}}>Undo</button> : <button onClick={() => {toggle(list.id)}}>Complete</button>}
+              {/*Whether tasl is "complete" in databse (true/false) determines what button is displayed, each with toggle */}
+              <button onClick={() => deleteButton(list.id)}>Delete Task</button>
             </div>
           })
         }

@@ -31,14 +31,15 @@ npm run client - react | npm run server - express server | postgress server: run
 [x] Create html sections on DOM with inputs for task descriptions
 [x] Create POST route for inputs to server
 [x] Add server-side POST request to upload to database, make sure posted items appear on DOM
-[] Server-side PUT request to update task to complete (false => true)
-[] Add button on client-side to initiate PUT request
+[x] Server-side PUT request to update task to complete (false => true)
+[x] Add button on client-side to initiate PUT request
+[x] Show task as "complete" on DOM with button press, clear button out after
+[x] Add Button that links to a client-side DELTE request for specific task
+[x] Add server-side code for DELETE request
 [] Change css styling of completed task
-
-
-
-[] DELETE request to pull item off database
 [] CSS Styling to make page fancy
+[] Increase textbox side of Input
+[] Create a way to prioritize tasks with button(?)
 
 //if false? toggle
 {!country.visited && <div>Haven't been there</div>}

@@ -37,13 +37,27 @@ router.put('/:id', (req, res) => {
     let queryText = `UPDATE "todo" SET "complete" = NOT "complete" WHERE "id" = $1;`;
 
     pool.query(queryText, [req.params.id]).then((r) => {
-        res.sendStatus(201);
+        res.sendStatus(201); //Created
     }).catch((e) => {
         console.log('Error in server-side PUT request');
-        res.sendStatus(500);
+        res.sendStatus(500); //Unexpected Error
     });
 });
 
 // DELETE
+
+router.delete('/:id', (req, res) => {
+    console.log('DELETE request', req.params);
+
+    let queryText = `DELETE FROM "todo" WHERE "id" = $1;`;
+
+    pool.query(queryText, [req.params.id]).then((r) => {
+        res.sendStatus(200); //Success
+    }).catch((e) => {
+        console.log('Error in server-side DELETE request', e);
+        res.sendStatus(500); //Unexpected Condition
+    });
+});
+
 
 module.exports = router;
