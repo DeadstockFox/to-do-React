@@ -65,6 +65,8 @@ function App () {
       alert('Something went wrong :c');
     })
   };
+
+  let rank = 150;
 /*
 IGNORE: Testing old onClick!
   function changeTask(event) {
@@ -99,18 +101,19 @@ IGNORE: Testing old onClick!
         {
           todoList.map((list) => {
             return <div key={list.id} className={list.complete ? "complete" : "notComplete"}> {/*Changes CSS background color*/}
-            <table >
+            <table>
               <tbody>
                 <tr className={"rows"}>
-                 <td id={"listDesc"}>{list.description}</td> {/*Task description*/}
+                 <td id={"rank"}>{rank}</td>
+                 
+                 <td id={"listDesc"}>{list.description}</td>{/*Task description*/}
 
-                 <td id={"other"}>{(list.complete === true ? "Finished" : "Not Finished")}</td> {/*Is task complete?*/}
+                 <td id={"other"}>{(list.complete === true ? "Finished" : "Not Finished")}</td>{/*Is task complete?*/}
 
-                 <td id={"other"}>{list.complete ? <button id={"undo"} onClick={() => {toggle(list.id)}}>Undo</button> :
-               <button onClick={() => {toggle(list.id)}}>Complete</button>}</td>
-               {/* ^ "Undo" or "Complete" button, depending on list.complete truth, calls toggle function */}
-                
-                <td id={"other"}><button id={"delete"} onClick={() => deleteButton(list.id)}>Delete Task</button></td> {/*Delete button*/}
+                 <td id={"other"}>{list.complete ? <button id={"undo"} onClick={() => {toggle(list.id)}}>Undo</button> : <button onClick={() => {toggle(list.id)}}>Complete</button>}</td>
+               {/* ^ "Undo" or "Complete" button, depending on list.complete truth, calls toggle function */}    
+
+                <td id={"other"}><button id={"delete"} onClick={() => deleteButton(list.id)}>Delete Task</button></td>{/*Delete button*/}
                 </tr>
               </tbody>
              </table>

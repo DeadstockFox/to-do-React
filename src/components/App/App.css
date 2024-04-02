@@ -31,27 +31,29 @@ table {
   display:block;
   margin-right: auto;
   margin-left: auto;
-  width: 850px;
+  width: 870px;
   table-layout: fixed;
   
 }
 
 .complete {
   background-color: aquamarine;
-  width: 850px;
+  width: 870px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #listDesc {
   word-break: break-all;
-  width: 70%;
+  width: 67%;
   table-layout: fixed;
+  border-left: solid black 1px;
+  padding-left: 5px;
   
 }
 
 #other {
-  width: 100px;
+  width: 9%;
   table-layout: fixed;
   text-align: center;
   border-left: solid black 1px;
@@ -62,6 +64,12 @@ table {
 }
 
 #undo, #delete {
+  table-layout: fixed;
   width: 73px;
+}
+
+#rank {
+  width:3%;
+  table-layout: fixed;
 }
 
