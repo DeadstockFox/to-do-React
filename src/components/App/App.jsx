@@ -83,7 +83,7 @@ IGNORE: Testing old onClick!
     <div>
 
       <header>
-      <h1>TO DO APP</h1>
+      <h1 className={"oswald"}>TO DO APP</h1>
       </header>
 
       <main>
@@ -105,7 +105,7 @@ IGNORE: Testing old onClick!
               <tbody>
                 <tr className={"rows"}>
                  <td id={"rank"}>{rank}</td>
-                 
+
                  <td id={"listDesc"}>{list.description}</td>{/*Task description*/}
 
                  <td id={"other"}>{(list.complete === true ? "Finished" : "Not Finished")}</td>{/*Is task complete?*/}
