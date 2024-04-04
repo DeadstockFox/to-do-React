@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Header from '../Header/Header.jsx';
 
 
 
@@ -105,7 +106,7 @@ IGNORE: Testing old onClick!
     <div>
 
       <header>
-      <h1 className={"oswald"}>TO DO APP</h1>
+      <Header />
       </header>
 
       <main>
