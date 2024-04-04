@@ -28,16 +28,12 @@
   margin-left: auto;
   margin-right: auto;
   background-color: lightseagreen;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-h1 {
-  text-align: center;
-  font-family: ;
 }
 
 table {
@@ -47,7 +43,7 @@ table {
   margin-left: auto;
   width: 870px;
   table-layout: fixed;
-  
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .complete {
@@ -58,12 +54,39 @@ table {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
 }
+.normal {
+  background-color: #fff4f1;
+  width: 870px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box {
+  display: inline-block;
+  align-content: center;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  width: 125px;
+  height: 125px;
+  border-style: dotted;
+  border-radius: 30px;
+}
+
+#priority {
+  background-color: lightcoral;
+  width: 870px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+
 
 #listDesc {
   word-break: break-all;
   width: 67%;
   table-layout: fixed;
-  border-left: solid black 1px;
   padding-left: 5px;
   
 }
@@ -75,11 +98,7 @@ table {
   border-left: solid black 1px;
 }
 
-#inputIt {
-  text-align: center;
-}
-
-#undo, #delete {
+#undo, #delete, #priorityButton {
   table-layout: fixed;
   width: 73px;
 }
@@ -88,6 +107,5 @@ table {
   width:3%;
   table-layout: fixed;
 }
-
 
 

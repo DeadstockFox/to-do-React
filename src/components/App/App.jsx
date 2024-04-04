@@ -8,7 +8,10 @@ function App () {
   //Getters & Setters
   const [todoList, setTodoList] = useState([]); //GET
   const [task, setTask] = useState(''); //POST
-  const [buttonState, setButtonState] = useState("Complete")
+
+
+//------------GET & POST-------------\\
+
 
   //Function with GET request inside
   function getTodoList() {
@@ -44,6 +47,11 @@ function App () {
     })
   };
 
+  //---------------------------------------
+
+
+  //-------PUT & DELETE---------\\
+
   //function to update whether country has been visited in database,
    const toggle = (id) => {
 
@@ -56,6 +64,18 @@ function App () {
     }) 
   };
 
+  const prioritizeTask = (listId) => {
+    
+    //PUT request
+    axios.put(`/api/todo/pri/${listId}`).then((r) =>{
+
+      getTodoList(); //updates current task list on DOM
+    }).catch((e) => {
+      console.log('Error in client PUT request');
+      alert('Something went wrong :c');
+    });
+  };
+
   //Function to delete task on DOM, will also delete button
   function deleteButton(id) {
     axios.delete(`/api/todo/${id}`).then((r) => {
@@ -65,8 +85,10 @@ function App () {
       alert('Something went wrong :c');
     })
   };
+//--------------------------------
 
-  let rank = 150;
+
+  
 /*
 IGNORE: Testing old onClick!
   function changeTask(event) {
@@ -88,7 +110,7 @@ IGNORE: Testing old onClick!
 
       <main>
 
-      <form id={"inputIt"} onSubmit={postTask}> {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
+      <form id={"inputIt"} style={{textAlign:"center"}}onSubmit={postTask}> {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
       {/*input list items*/}
 
       <input id={"taskDesc"} placeholder={"Input new task"} style={{width: "400px"}} onChange={(e) => {setTask(e.target.value)}} />
@@ -100,11 +122,10 @@ IGNORE: Testing old onClick!
       {/*display list on DOM, loops through each item in Database with .map*/}
         {
           todoList.map((list) => {
-            return <div key={list.id} className={list.complete ? "complete" : "notComplete"}> {/*Changes CSS background color*/}
+            return <div key={list.id} id={list.priority === true && list.complete === false ? "priority" : ""} className={list.complete === true ? "complete" : "normal"}> {/*Changes CSS background color*/}
             <table>
               <tbody>
                 <tr className={"rows"}>
-                 <td id={"rank"}>{rank}</td>
 
                  <td id={"listDesc"}>{list.description}</td>{/*Task description*/}
 
@@ -114,6 +135,8 @@ IGNORE: Testing old onClick!
                {/* ^ "Undo" or "Complete" button, depending on list.complete truth, calls toggle function */}    
 
                 <td id={"other"}><button id={"delete"} onClick={() => deleteButton(list.id)}>Delete Task</button></td>{/*Delete button*/}
+
+                <td id={"other"}><button style={{marginLeft:".5px"}} id={"priorityButton"} onClick={() => prioritizeTask(list.id)}>Prioritize Task</button></td>
                 </tr>
               </tbody>
              </table>
@@ -121,8 +144,11 @@ IGNORE: Testing old onClick!
           })
         }
       </main>
-      <footer>
-
+      <br />
+      <br />
+      <footer style={{display: "flex", justifyContent: "center"}}>
+        <div className={"box"} style={{marginRight: "5%", backgroundColor: "aquamarine"}}>Complete</div>
+        <div className={"box"}style={{marginLeft: "5%", backgroundColor: "lightcoral"}}>Priority</div>
       </footer>
 
 

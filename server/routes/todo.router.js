@@ -9,7 +9,7 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => { // api/todo
     console.log('GET request made');
 
-    const queryText = `SELECT * FROM "todo" ORDER BY "id"`;
+    const queryText = `SELECT * FROM "todo" ORDER BY "priority" DESC NULLS LAST, "id";`;
     pool.query(queryText).then((r) => {
         res.send(r.rows);  //sending from "todo"
     }).catch((e) => {
@@ -41,6 +41,17 @@ router.put('/:id', (req, res) => {
     }).catch((e) => {
         console.log('Error in server-side PUT request');
         res.sendStatus(500); //Unexpected Error
+    });
+});
+
+router.put('/pri/:id', (req, res) => {
+    console.log(req.params);
+    let queryText = `UPDATE "todo" SET "priority" = NOT "priority" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id]).then((r) => {
+        res.sendStatus(201);
+    }).catch((e) => {
+        console.log('Error in server-side PUT request', e);
+        res.sendStatus(500);
     });
 });
 
