@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
+import Footer from '../Footer/Footer.jsx';
 
 
 
@@ -147,12 +148,7 @@ IGNORE: Testing old onClick!
       </main>
       <br />
       <br />
-      <footer style={{display: "flex", justifyContent: "center"}}>
-        <div className={"box"} style={{marginRight: "5%", backgroundColor: "aquamarine"}}>Complete</div>
-        <div className={"box"}style={{marginLeft: "5%", backgroundColor: "lightcoral"}}>Priority</div>
-      </footer>
-
-
+      <Footer />
 
     </div>
   );
