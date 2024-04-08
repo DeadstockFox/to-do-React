@@ -11,8 +11,8 @@ function Table({todoList, getTodoList}) {
          {/*display list on DOM, loops through each item in Database with .map*/}
          {
            todoList.map((list) => {
-            return <div key={list.id} id={list.priority === true && list.complete === false ? "priority" : ""}
-            className={list.complete === true ? "complete" : "normal"}> {/*Since id takes priority over className, ternary for priority trumps*/}
+            return <div key={list.id} id={list.complete === true ? "complete" : ""}
+            className={list.priority === true ? "priority" : "normal"}> {/*Since id takes priority over className, ternary for complete trumps*/}
             <table>
               <tbody>
                 <tr className={"rows"}>

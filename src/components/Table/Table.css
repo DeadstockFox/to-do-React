@@ -8,7 +8,7 @@ table {
     font-family: 'Times New Roman', Times, serif;
   }
   
-  .complete {
+  #complete {
     background-color: aquamarine;
     width: 870px;
     margin-left: auto;
@@ -35,10 +35,11 @@ table {
     width: 9%;
     table-layout: fixed;
     text-align: center;
+    padding-left: 2.5px;
     border-left: solid black 1px;
   }
 
-  #priority {
+  .priority {
     background-color: lightcoral;
     width: 870px;
     margin-left: auto;

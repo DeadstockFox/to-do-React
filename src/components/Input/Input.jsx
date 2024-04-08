@@ -14,7 +14,7 @@ function Input({getTodoList}) {
      let taskData = {description: task}; //saving input data as variable
 
      axios.post('/api/todo', taskData).then((r) => {
-       getTodoList; //Reloading list, seems to process before POST request because it's in a component?
+       getTodoList(); 
      }).catch((e) => {
        console.log('error in client-side POST request', e);
        alert('Something went wrong :c');
