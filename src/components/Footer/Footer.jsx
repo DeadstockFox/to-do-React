@@ -1,4 +1,3 @@
-import App from '../App/App.jsx';
 
 function Footer() {
     return (
