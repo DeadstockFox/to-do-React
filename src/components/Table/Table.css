@@ -1,0 +1,54 @@
+table {
+    border: solid black 1px;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 870px;
+    table-layout: fixed;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .complete {
+    background-color: aquamarine;
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }
+  .normal {
+    background-color: #fff4f1;
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #listDesc {
+    word-break: break-all;
+    width: 67%;
+    table-layout: fixed;
+    padding-left: 5px;
+    
+  }
+  
+  #other {
+    width: 9%;
+    table-layout: fixed;
+    text-align: center;
+    border-left: solid black 1px;
+  }
+
+  #priority {
+    background-color: lightcoral;
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }
+  
+  #undo, #delete, #priorityButton {
+    table-layout: fixed;
+    width: 73px;
+  }
+  

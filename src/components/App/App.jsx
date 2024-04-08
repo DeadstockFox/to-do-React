@@ -29,16 +29,6 @@ function App () {
       getTodoList();
     }, []); //SELF REMINDER: useEffect function takes in 2 arguments: arrow function & empty array!!!
 
-    /*
-        IGNORE: Testing old onClick!
-        function changeTask(event) {
-        event.preventDefault();
-        setTask(document.getElementById("taskDesc").value);
-        console.log(task);
-         };
-
-        It works, but there is a delay with answers, don't like that!
-    */ 
 
   return (
     <div>

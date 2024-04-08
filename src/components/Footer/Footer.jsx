@@ -1,4 +1,6 @@
+import './Footer.css'
 
+//Boxes indicating status with corresponding color
 function Footer() {
     return (
         <footer style={{display: "flex", justifyContent: "center"}}>

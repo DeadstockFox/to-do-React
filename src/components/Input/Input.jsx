@@ -19,11 +19,12 @@ function Input({getTodoList}) {
        console.log('error in client-side POST request', e);
        alert('Something went wrong :c');
      })
+     
    };
 
    return (
 
-    <form id={"inputIt"} style={{textAlign:"center"}}onSubmit={postTask}> {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
+    <form style={{textAlign:"center"}}onSubmit={postTask}> {/*Reminder to self: OnSubmit works because any button click then submits form by default*/}
     <input id={"taskDesc"} placeholder={"Input new task"} style={{width: "400px"}} onChange={(e) => {setTask(e.target.value)}} />
     <button>Submit</button>
     </form>

@@ -1,0 +1,11 @@
+.box {
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    width: 125px;
+    height: 125px;
+    border-style: dotted;
+    border-radius: 30px;
+  }

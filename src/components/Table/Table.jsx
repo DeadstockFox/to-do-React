@@ -1,9 +1,8 @@
 import Input from '../Input/Input.jsx';
+import './Table.css'
 import Delete_Prioritize from './Delete_Prioritize.jsx';
 
 function Table({todoList, getTodoList}) {
-
-
 
     return (
         <>
@@ -28,7 +27,7 @@ function Table({todoList, getTodoList}) {
             </table>
               </div>
             })
-          }
+         }
         </>
 
     )
